@@ -1,0 +1,33 @@
+# Core GUI framework
+PySide6>=6.0.0
+
+# Audio analysis dependencies
+mutagen>=1.45.0
+
+# PySide6 drag-and-drop is built-in, no additional dependency needed
+
+# Document analysis dependencies
+PyPDF2>=3.0.0
+python-docx>=0.8.11
+chardet>=5.0.0
+
+# 3D model analysis dependencies
+numpy>=1.20.0
+trimesh>=3.9.0
+plyfile>=0.7.4
+
+# Multimedia analysis dependencies (comprehensive file detection)
+python-magic>=0.4.24
+
+# Archive processing dependencies
+rarfile>=4.0
+
+# Optional: Enhanced processing
+# open3d>=0.13.0   # Advanced point cloud and mesh operations
+openpyxl>=3.0.0  # Excel file processing
+# lxml>=4.6.0      # XML processing
+
+# Development dependencies (optional)
+# pytest>=6.0.0
+# black>=21.0.0
+# flake8>=3.8.0

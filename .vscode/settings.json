@@ -1,0 +1,30 @@
+{
+  // まずは「全体の自動承認」はオフ
+  "chat.tools.global.autoApprove": false,
+
+  // ファイル読み書きは自動承認（read/writeダイアログを減らす）
+  "chat.tools.files.autoApprove": true,
+
+  // ★ターミナルで自動許可する“安全コマンド”の許可リスト
+  "chat.tools.terminal.autoApprove": [
+    "python3",
+    "pip list",
+    "pytest -q",
+    "ruff check .",
+    "node -v",
+    "npm run build",
+    "npm test",
+    "ffprobe -version"
+  ],
+
+  // ★絶対通したくないコマンドの拒否リスト（保険）
+  "chat.tools.terminal.blocklist": [
+    "rm -rf",
+    "sudo",
+    "shutdown",
+    "reboot",
+    "mkfs",
+    "diskutil",
+    ":(){ :|:& };:"  // フォークボム
+  ]
+}

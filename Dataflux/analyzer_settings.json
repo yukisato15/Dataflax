@@ -1,0 +1,12 @@
+{
+  "paths": [
+    "/Users/yukisato/Downloads/audio"
+  ],
+  "operation_mode": "copy",
+  "dry_run": true,
+  "filter": {
+    "media": "audio",
+    "size_min": "",
+    "size_max": ""
+  }
+}

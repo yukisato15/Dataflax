@@ -1,0 +1,16 @@
+FFmpeg License Notice
+
+This application includes FFmpeg components (ffprobe) which are licensed under 
+the GNU Lesser General Public License (LGPL) version 2.1 or later.
+
+FFmpeg source code is available at: https://ffmpeg.org/download.html
+
+For complete license terms, see: https://www.gnu.org/licenses/lgpl-2.1.html
+
+Key LGPL requirements:
+- Source code availability for LGPL components
+- Permission to link with proprietary software
+- Distribution of license notices
+
+The LGPL does not affect the licensing of the main application,
+but applies specifically to the included FFmpeg components.

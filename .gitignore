@@ -1,0 +1,24 @@
+# Node / Electron
+electron/node_modules/
+electron/dist/
+electron/.vite/
+electron/.tsbuildinfo
+
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/logs/
+.venv*/
+venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Build/outputs
+Dataflux/dist/
+Dataflux/build/
+Dataflux/backups/
+Dataflux/logs/
+Dataflux/temp/
