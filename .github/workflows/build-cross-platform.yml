@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: Dataflux
     strategy:
       fail-fast: false
       matrix:
@@ -29,7 +32,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: "pip"
-          cache-dependency-path: requirements.txt
+          cache-dependency-path: Dataflux/requirements.txt
 
       - name: Install ffprobe (macOS)
         if: runner.os == 'macOS'
@@ -76,7 +79,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact_name }}
-          path: dist/Dataflux-${{ matrix.platform_name }}.zip
+          path: Dataflux/dist/Dataflux-${{ matrix.platform_name }}.zip
           if-no-files-found: error
 
   release:
