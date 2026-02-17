@@ -45,7 +45,28 @@ jobs:
         working-directory: Dataflux
         run: |
           [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-          python build_dataflux.py
+          pyinstaller --noconfirm --windowed --name Dataflux `
+            --icon assets/icons/dataflux.ico `
+            --add-data "themes;themes" `
+            --add-data "ui_qt;ui_qt" `
+            --add-data "core;core" `
+            --add-data "utils;utils" `
+            --add-binary "bin/ffprobe.exe;bin" `
+            --hidden-import PySide6 `
+            --hidden-import PySide6.QtCore `
+            --hidden-import PySide6.QtGui `
+            --hidden-import PySide6.QtWidgets `
+            main.py
+
+      - name: Package Windows zip
+        working-directory: Dataflux
+        run: |
+          if (Test-Path dist\Dataflux-Windows.zip) { Remove-Item dist\Dataflux-Windows.zip -Force }
+          New-Item -ItemType Directory -Force -Path dist\package | Out-Null
+          Copy-Item -Recurse -Force dist\Dataflux dist\package\Dataflux
+          if (Test-Path README.md) { Copy-Item README.md dist\package\README.md -Force }
+          if (Test-Path FFMPEG_LICENSE.txt) { Copy-Item FFMPEG_LICENSE.txt dist\package\FFMPEG_LICENSE.txt -Force }
+          Compress-Archive -Path dist\package\* -DestinationPath dist\Dataflux-Windows.zip -Force
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -53,6 +74,5 @@ jobs:
           name: Dataflux-Windows
           path: |
             Dataflux/dist/Dataflux-Windows.zip
-            Dataflux/dist/Dataflux/**
           if-no-files-found: error
           retention-days: 14
