@@ -12,6 +12,9 @@ on:
 jobs:
   build-windows:
     runs-on: windows-latest
+    env:
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: "utf-8"
     defaults:
       run:
         shell: powershell
@@ -41,6 +44,7 @@ jobs:
       - name: Build Dataflux
         working-directory: Dataflux
         run: |
+          [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
           python build_dataflux.py
 
       - name: Upload artifacts
